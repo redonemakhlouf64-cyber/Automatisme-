@@ -1,0 +1,15 @@
+{
+  "name": "@nyx/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "dependencies": {
+    "drizzle-orm": "^0.44.7",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.4",
+    "typescript": "^5.9.3"
+  }
+}

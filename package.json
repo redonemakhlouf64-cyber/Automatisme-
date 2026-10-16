@@ -14,5 +14,12 @@
     "dev:worker": "npm run dev --workspace=@nyx/worker",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.4",
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.11"
   }
 }
