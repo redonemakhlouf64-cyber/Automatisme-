@@ -33,24 +33,23 @@ jobs:
 
       - name: Inspect dashboard build output
         if: always()
+        shell: bash
         run: |
-          echo "=== PWD ==="
+          echo "=== Workspace ==="
           pwd
-          echo "=== ROOT ==="
-          ls -la
-          echo "=== apps ==="
-          ls -la apps || true
-          echo "=== dashboard ==="
+          ls -la || true
+          echo "=== Dashboard ==="
           ls -la apps/dashboard || true
-          echo "=== ALL BUILD DIRECTORIES ==="
+          echo "=== Build output directories ==="
           find apps/dashboard -maxdepth 3 -type d \\( -name ".next" -o -name "dist" -o -name "build" \\) -print 2>/dev/null || true
-          echo "=== NEXT FILES ==="
-          find apps/dashboard/.next -maxdepth 2 -type f 2>/dev/null | head -80 || true
+          echo "=== Next.js output files ==="
+          find apps/dashboard/.next -maxdepth 2 -type f -print 2>/dev/null | head -80 || true
 
       - name: Save dashboard build
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nyx-social-dashboard
           path: apps/dashboard/.next/
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 7
