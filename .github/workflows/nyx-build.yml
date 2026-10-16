@@ -41,7 +41,7 @@ jobs:
           echo "=== Dashboard ==="
           ls -la apps/dashboard || true
           echo "=== Build output directories ==="
-          find apps/dashboard -maxdepth 3 -type d \\( -name ".next" -o -name "dist" -o -name "build" \\) -print 2>/dev/null || true
+          find apps/dashboard -maxdepth 3 -type d \( -name ".next" -o -name "dist" -o -name "build" \) -print 2>/dev/null || true
           echo "=== Next.js output files ==="
           find apps/dashboard/.next -maxdepth 2 -type f -print 2>/dev/null | head -80 || true
 
