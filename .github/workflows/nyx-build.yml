@@ -31,6 +31,21 @@ jobs:
       - name: Build dashboard
         run: npm run build --workspace=@nyx/dashboard
 
+      - name: Inspect dashboard build output
+        if: success()
+        run: |
+          echo "=== Dashboard directory ==="
+          ls -la apps/dashboard
+          echo "=== Next.js output ==="
+          if [ -d apps/dashboard/.next ]; then
+            echo "NEXT_DIR_EXISTS=true"
+            du -sh apps/dashboard/.next
+            find apps/dashboard/.next -maxdepth 2 -type f | head -80
+          else
+            echo "NEXT_DIR_EXISTS=false"
+            exit 1
+          fi
+
       - name: Save dashboard build
         uses: actions/upload-artifact@v4
         with:
