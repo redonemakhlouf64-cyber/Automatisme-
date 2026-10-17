@@ -12,7 +12,7 @@
     "dev": "npm run dev --workspace=@nyx/dashboard",
     "dev:api": "npm run dev --workspace=@nyx/api",
     "dev:worker": "npm run dev --workspace=@nyx/worker",
-    "build": "npm run build --workspaces",
+    "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces"
   },
   "dependencies": {
